@@ -1,0 +1,129 @@
+.page1 {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+  
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    height: 80vh;
+    width: 80vw;
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin-top: 8.5vh;
+
+      .heading {
+        h2 {
+            font-size: 3rem;
+            line-height: 2rem;
+            color: #161c63;
+        }
+        h1 {
+          font-size: 4rem;
+          line-height: 3.3rem;
+          color: #161c63;
+        }
+
+        b {
+          line-height: 4rem;
+        }
+
+        margin-bottom: 20px;
+      }
+
+      p {
+        width: 90%;
+        font-size: 1.2rem;
+        color: #202020;
+        margin-bottom: 40px;
+      }
+    }
+
+    .image {
+        display: flex;
+        justify-content: center;
+        .profile {
+            height: 500px;
+            width: auto;
+            position: absolute;
+            -webkit-animation: float 6s ease-in-out infinite;
+                animation: float 6s ease-in-out infinite;
+        }
+        .background {
+            height: 610px;
+            width: auto;
+            position: absolute;
+            z-index: -1;
+            -webkit-animation: float 6s ease-in-out infinite;
+                animation: float 6s ease-in-out infinite;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+      .row {
+        flex-direction: column;
+      }
+
+      .sign {
+        margin-bottom: 12px;
+      }
+    }
+
+    @media only screen and (max-width: 967px) {
+      .wrapper {
+        margin-left: 30px;
+      }
+
+      .heading {
+        h1 {
+          font-size: 2.5rem !important;
+          margin-bottom: 8.5px;
+          line-height: 30px !important;
+        }
+
+        b {
+          line-height: 90px !important;
+        }
+      }
+
+      .text {
+        width: 95% !important;
+
+        b {
+          line-height: 50px;
+        }
+      }
+
+      .image {
+        display: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 967px) {
+    .wrapper {
+      margin-left: 30px;
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    -webkit-transform: translatey(0px);
+    transform: translatey(0px);
+  }
+
+  50% {
+    -webkit-transform: translatey(-10px);
+    transform: translatey(-10px);
+  }
+
+  100% {
+    -webkit-transform: translatey(0px);
+    transform: translatey(0px);
+  }
+}
