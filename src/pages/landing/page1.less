@@ -1,124 +1,115 @@
-.page1 {
-  height: 90vh;
-  display: flex;
+@desktop: 1200px;
+@laptop: 1124px;
+@tablet: 768px;
+@phone: 480px;
+@col-s: 540px;
+@col-m: 720px;
+@col-l: 960px;
+
+body {
+  background-color: #9fd1c9;
+  max-width: 100%; 
+  width: 100vw; 
+  height: 100vh;
+}
+
+section {
+  display:flex; 
   justify-content: center;
   align-items: center;
+  min-height: 100vh; 
+  max-height: 100vh;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  
   font-family: "Lato", sans-serif;
-  background-color: #57ad9f;
 
   canvas {
     width: 100%;
     height: 100%;
     position: absolute;
+    z-index: 2;
   }
 
   .wrapper {
-    display: flex;
-    justify-content: space-between;
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
     align-items: center;
-    height: 50vh;
-    width: 50vw;
-    z-index: 1;
+    min-height: 50vh; 
+    max-height: 50vh;
 
-    .profile {
-      height: 300px;
-      width: 300px;
-      // -webkit-animation: float 6s ease-in-out infinite;
-      // animation: float 6s ease-in-out infinite;
-    }
+    z-index: 3;
 
-    .text {
-      display: flex;
-      flex-direction: column;
-      height: 65%;
-      width: 65%;
+    .row {
+      display: flex; 
+      flex-direction: row; 
+      flex-wrap: wrap;
+      position: relative;
+      width: 1066px; 
+      min-height: 50vh; 
+      max-height: 50vh;
+      
+      justify-content: space-between;
+  
+      border-width: 1px;
+      border-style: solid;
+      border-color: black;
+      padding: 30px;
+      margin: 30px;
 
-      .heading {
-        h2 {
-          font-size: 3rem;
-          line-height: 2rem;
-          color: #161c63;
+      @media screen and (max-width: @laptop) {
+        .row {
+          display: flex; 
+          flex-direction: column; 
+          flex-wrap: wrap;
+          position: relative;
+          width: 1066px; 
+          min-height: 50vh; 
+          max-height: 50vh;
+
+          justify-content: center; 
+
         }
+      }
+  
+      .profile-pic {
+  
+        width: 400px; 
+        height: 400px;
+        margin-bottom: 30px;
+        margin-right: 100px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+        // -webkit-animation: float 6s ease-in-out infinite;
+        // animation: float 6s ease-in-out infinite;
+      }
+  
+      .text {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        border-width: 1px;
+        border-style: solid;
+        border-color: black;
+  
         h1 {
           font-size: 4rem;
           line-height: 3.3rem;
           color: #161c63;
         }
-
-        b {
-          line-height: 4rem;
+  
+        p {
+          width: 90%;
+          font-size: 1.2rem;
+          color: #202020;
+          margin-bottom: 40px;
         }
-      }
-
-      p {
-        width: 90%;
-        font-size: 1.2rem;
-        color: #202020;
-        margin-bottom: 40px;
-      }
-    }
-
-    @media only screen and (max-width: 576px) {
-      .row {
-        flex-direction: column;
-      }
-
-      .sign {
-        margin-bottom: 12px;
-      }
-    }
-
-    @media only screen and (max-width: 967px) {
-      .wrapper {
-        margin-left: 30px;
-      }
-
-      .heading {
-        h1 {
-          font-size: 2.5rem !important;
-          margin-bottom: 8.5px;
-          line-height: 30px !important;
-        }
-
-        b {
-          line-height: 90px !important;
-        }
-      }
-
-      .text {
-        width: 95% !important;
-
-        b {
-          line-height: 50px;
-        }
-      }
-
-      .image {
-        display: none;
       }
     }
   }
-
-  @media only screen and (max-width: 967px) {
-    .wrapper {
-      margin-left: 30px;
-    }
-  }
-}
-
-@keyframes float {
-  0% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
-
-  50% {
-    -webkit-transform: translatey(-10px);
-    transform: translatey(-10px);
-  }
-
-  100% {
-    -webkit-transform: translatey(0px);
-    transform: translatey(0px);
-  }
+  
 }

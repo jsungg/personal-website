@@ -5,35 +5,13 @@ import profilePic from "../../components/static/profile.png"
 function Page1() {
   const canvasRef = useRef(null)
 
-  const getPixelRatio = context => {
-    var backingStore =
-      context.backingStorePixelRatio ||
-      context.webkitBackingStorePixelRatio ||
-      context.mozBackingStorePixelRatio ||
-      context.msBackingStorePixelRatio ||
-      context.oBackingStorePixelRatio ||
-      context.backingStorePixelRatio ||
-      1
-
-    return (window.devicePixelRatio || 1) / backingStore
-  }
 
   useEffect(() => {
     const canvas = canvasRef.current
-    const context = canvas.getContext("2d")
+    const context = canvas.getContext("2d");
 
-    const ratio = getPixelRatio(context)
-    const width = getComputedStyle(canvas)
-      .getPropertyValue("width")
-      .slice(0, -2)
-    const height = getComputedStyle(canvas)
-      .getPropertyValue("height")
-      .slice(0, -2)
-
-    canvas.width = width * ratio
-    canvas.height = height * ratio
-    canvas.style.width = `${width}px`
-    canvas.style.height = `${height}px`
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight;
 
     context.filter = "blur(00px)"
 
@@ -70,16 +48,15 @@ function Page1() {
 
     const balls = []
 
-    balls.push(new Circle(width / 2, height / 2, 700, "#b4ede3"))
-    balls.push(new Circle(30, height, 800, "#82bfb5"))
-    balls.push(new Circle(20, 20, 600, "#87e0d1"))
-    balls.push(new Circle(width / 1.4, height / 4, 350, "#73c7b9"))
-    balls.push(new Circle(width, height, 800, "#9fd1c9"))
+    balls.push(new Circle(30, canvas.height, canvas.height / 2.5, "#82bfb5"))
+    balls.push(new Circle(20, 20, canvas.height / 1.5, "#87e0d1"))
+    balls.push(new Circle(canvas.width / 1.4, canvas.height / 4, canvas.height / 3, "#73c7b9"))
+    balls.push(new Circle(canvas.width, canvas.height, canvas.height / 1.2, "#b4ede3"))
 
     function update() {
       context.clearRect(0, 0, canvas.width, canvas.height)
 
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 4; i++) {
         balls[i].animate()
       }
       requestAnimationFrame(update)
@@ -89,28 +66,20 @@ function Page1() {
   })
 
   return (
-    <div className="page1">
+    <section>
       <div className="wrapper">
-        <img
-          className="profile"
-          src={profilePic}
-          alt="Profile of Justin Sung"
-        />
-        <div className="text">
-          <div className="heading">
+        <div className="row">
+          <div className="profile-pic">
+            <img src={profilePic} alt="Profile Pic of Justin Sung"/>
+          </div> 
+          <div className="text">
             <h1>Hi, I'm Justin</h1>
+            <p>I am an incoming Senior at UC San Diego who is currently pursuing a Bachelor's Degree in Math-Computer Science and is expected to graduate by 2021. Currently I am looking for internships in Front-End Development for both mobile and web based applications. Feel free to check out my website :)</p>
           </div>
-          <p>
-            I am an incoming Senior at UC San Diego who is currently pursuing a
-            Bachelor's Degree in Math-Computer Science and is expected to
-            graduate by 2021. Currently I am looking for internships in
-            Front-End Development for both mobile and web based applications.
-            Feel free to check out my website :)
-          </p>
         </div>
-      </div>
+     </div>
       <canvas ref={canvasRef} />
-    </div>
+    </section>
   )
 }
 
