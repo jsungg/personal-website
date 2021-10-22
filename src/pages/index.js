@@ -1,13 +1,13 @@
 import React from "react"
 import 'antd/dist/antd.css';
-import HeaderMenu from "../components/header";
-import Page1 from "./page1/page1";
+import Navbar from "../components/navbar";
+import Page1 from "./landing/landing";
 
 
 export default function Home() {
   return (
     <>
-      <HeaderMenu key="headermenu" />
+      <Navbar key="navbar" />
       <Page1 key="page1" />
     </>
   );
