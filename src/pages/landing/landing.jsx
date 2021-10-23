@@ -5,8 +5,8 @@ import resume from "../../components/static/JSungResume2021.pdf"
 
 function Page1() {
   const canvasRef = useRef(null)
-  const [width, setWidth] = useState(window.innerWidth)
-  const [height, setHeight] = useState(window.innerHeight)
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
 
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth)
@@ -14,6 +14,8 @@ function Page1() {
   }
 
   useEffect(() => {
+    updateWidthAndHeight()
+
     const canvas = canvasRef.current
     const context = canvas.getContext("2d")
 
