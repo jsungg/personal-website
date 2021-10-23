@@ -1,115 +1,156 @@
-@desktop: 1200px;
-@laptop: 1124px;
-@tablet: 768px;
-@phone: 480px;
-@col-s: 540px;
-@col-m: 720px;
-@col-l: 960px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h3 {
+  font-size: 4rem;
+  background-image: linear-gradient(#161c63, #3a48dd);
+  background-clip: text;
+  color: transparent;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+h2, a {
+  background-image: linear-gradient(#161c63, #3947eb);
+  background-clip: text;
+  color: transparent;
+  font-weight: 900;
+  line-height: 1;
+  padding-bottom: 0.5rem;
+}
+
+h2,
+h3,
+p {
+  margin-bottom: 1em;
+}
 
 body {
   background-color: #9fd1c9;
-  max-width: 100%; 
-  width: 100vw; 
-  height: 100vh;
+  font-weight: 400;
+  font-size: 1.3125rem;
+  line-height: 1.6;
 }
 
-section {
-  display:flex; 
-  justify-content: center;
+@media (min-width: 40em) {
+  header,
+  section {
+    padding: 7rem 0;
+  }
+
+  //change maybe
+  header > * {
+    text-align: right;
+    margin: 0 50 0 50;
+    border-bottom: 0;
+  }
+}
+
+.menu {
+  display: flex; 
+  flex-direction: column;
   align-items: center;
-  min-height: 100vh; 
-  max-height: 100vh;
+}
 
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  
-  font-family: "Lato", sans-serif;
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #0087ca;
+}
 
-  canvas {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 2;
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+@media (min-width: 40em) {
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 1em;
   }
 
-  .wrapper {
-    width: 100%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    min-height: 50vh; 
-    max-height: 50vh;
-
-    z-index: 3;
-
-    .row {
-      display: flex; 
-      flex-direction: row; 
-      flex-wrap: wrap;
-      position: relative;
-      width: 1066px; 
-      min-height: 50vh; 
-      max-height: 50vh;
-      
-      justify-content: space-between;
-  
-      border-width: 1px;
-      border-style: solid;
-      border-color: black;
-      padding: 30px;
-      margin: 30px;
-
-      @media screen and (max-width: @laptop) {
-        .row {
-          display: flex; 
-          flex-direction: column; 
-          flex-wrap: wrap;
-          position: relative;
-          width: 1066px; 
-          min-height: 50vh; 
-          max-height: 50vh;
-
-          justify-content: center; 
-
-        }
-      }
-  
-      .profile-pic {
-  
-        width: 400px; 
-        height: 400px;
-        margin-bottom: 30px;
-        margin-right: 100px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: black;
-        // -webkit-animation: float 6s ease-in-out infinite;
-        // animation: float 6s ease-in-out infinite;
-      }
-  
-      .text {
-        width: 500px;
-        display: flex;
-        flex-direction: column;
-        border-width: 1px;
-        border-style: solid;
-        border-color: black;
-  
-        h1 {
-          font-size: 4rem;
-          line-height: 3.3rem;
-          color: #161c63;
-        }
-  
-        p {
-          width: 90%;
-          font-size: 1.2rem;
-          color: #202020;
-          margin-bottom: 40px;
-        }
-      }
-    }
+  .menu > * + * {
+    margin-left: 1em;
   }
-  
+
+}
+
+header,
+section {
+  padding: 4rem 0;
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 40em) {
+  .split {
+    flex-direction: row;
+  }
+
+  .split > * {
+    flex-basis: 100%;
+  }
+
+  .split > * + * {
+    margin-left: 1em;
+  }
+}
+
+.container {
+  margin-inline: auto;
+  width: ~"min(90%, 65em)";
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.background {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(#9fd1c9, #dbcce7);
 }
