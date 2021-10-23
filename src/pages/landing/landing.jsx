@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import "./page1.less"
 import profilePic from "../../components/static/profile.png"
-import resume from "../../components/static/JSungResume2021.pdf"
+import resume from "../../components/static/Justin_Sung_Resume_2021.pdf"
 
 function Page1() {
   const canvasRef = useRef(null)
@@ -119,11 +119,11 @@ function Page1() {
             <div className="text">
               <h1>Hi, I'm Justin</h1>
               <p>
-                I am an incoming Senior at UC San Diego who is currently
-                pursuing a Bachelor's Degree in Math-Computer Science and is
-                expected to graduate by 2021. Currently I am looking for
-                internships in Front-End Development for both mobile and web
-                based applications. Feel free to check out my website :)
+                I am software developer who recently graduated from UC San Diego with
+                a Bachelor's Degree in Math-Computer Science. Currently I am looking for
+                full time Front-End Development positions for both mobile and web
+                based applications, and Software Engnieer positions as well. 
+                Feel free to check out my website :)
               </p>
             </div>
           </div>
