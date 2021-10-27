@@ -122,7 +122,7 @@ function Page1() {
                 I am software developer who recently graduated from UC San Diego with
                 a Bachelor's Degree in Math-Computer Science. Currently I am looking for
                 full time Front-End Development positions for both mobile and web
-                based applications, and Software Engnieer positions as well. 
+                based applications, and Software Engineer positions as well. 
                 Feel free to check out my website :)
               </p>
             </div>
